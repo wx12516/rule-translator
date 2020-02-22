@@ -1,0 +1,154 @@
+主要有3类
+    A类. 条件指标 + 计算公式
+    B类. 条件指标 + 分段指标 + 计算公式
+    C类. 分段指标 + 计算公式
+
+A类
+==============================[rule script]=======================================
+def P055001, P056298, P1, S_P030003, S_P030004;
+if (S_P030003 < "1" && S_P030004 == "1" && limit(1,P056298,2) > 1){
+  	X6 = P1+P055001;
+	X7 = 1;
+	X1 = X6 * X7;
+	X1 = limit(100,X1,100);
+}
+==============================[render json]=======================================
+{
+    "condition":[
+        {
+            "busi":{
+                "var":"S_P030003",
+                "inputType":"40",
+                "valflag":"1",
+                "text":"[S_P030003](多值)广东_固网宽带接入间信息[S_P200038]虚科目",
+                "type":"string",
+                "value":"S_P030003"
+            },
+            "logic":"&&",
+            "left":"",
+            "right":"",
+            "busiDesc":{
+                "value":""1"",
+                "text":"1",
+                "type":"string",
+                "var":""1""
+            },
+            "min":{
+                "text":"",
+                "value":"",
+                "type":"string",
+                "var":""
+            },
+            "max":{
+                "text":"",
+                "value":"",
+                "type":"string",
+                "var":""
+            },
+            "operSymbol":"<"
+        },
+        {
+            "busi":{
+                "var":"S_P030004",
+                "inputType":"40",
+                "valflag":"1",
+                "text":"[S_P030004](多值)广东_宽固佣金割接_接入间_虚科目",
+                "type":"string",
+                "value":"S_P030004"
+            },
+            "logic":"&&",
+            "left":"",
+            "right":"",
+            "busiDesc":{
+                "value":""1"",
+                "text":"1",
+                "type":"string",
+                "var":""1""
+            },
+            "min":{
+                "text":"",
+                "value":"",
+                "type":"string",
+                "var":""
+            },
+            "max":{
+                "text":"",
+                "value":"",
+                "type":"string",
+                "var":""
+            },
+            "operSymbol":"=="
+        },
+        {
+            "busi":{
+                "var":"P056298",
+                "inputType":"10",
+                "valflag":"0",
+                "text":"[P056298]战略渠道971_店面补贴",
+                "type":"number",
+                "value":"P056298"
+            },
+            "logic":"&&",
+            "left":"",
+            "right":"",
+            "busiDesc":{
+                "value":"1",
+                "text":"1",
+                "type":"number",
+                "var":"1"
+            },
+            "min":{
+                "value":"1",
+                "text":"1",
+                "type":"number",
+                "var":"1"
+            },
+            "max":{
+                "value":"2",
+                "text":"2",
+                "type":"number",
+                "var":"2"
+            },
+            "operSymbol":">"
+        }
+    ],
+    "segment":[
+
+    ],
+    "calculator":{
+        "data":[
+            {
+                "basicNum":{
+                    "text":"[P1]用户付费类型+[P055001]2G最低产能",
+                    "value":"P1+P055001",
+                    "var":[
+                        "P1",
+                        "P055001"
+                    ],
+                    "type":"number"
+                },
+                "ratio":{
+                    "type":"number",
+                    "value":"1",
+                    "text":"1",
+                    "var":"1"
+                },
+                "min":{
+                    "value":"100",
+                    "text":"100",
+                    "type":"number",
+                    "var":"100"
+                },
+                "max":{
+                    "value":"100",
+                    "text":"100",
+                    "type":"number",
+                    "var":"100"
+                }
+            }
+        ],
+        "columns":[
+
+        ]
+    }
+}
